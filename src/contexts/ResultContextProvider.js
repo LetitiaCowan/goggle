@@ -16,8 +16,10 @@ export const ResultContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("cars");
 
-  // /videos, /search, /images
+  // Rapid API im using:
+  // https://rapidapi.com/andryerics/api/google-api-unlimited/playground/apiendpoint_73806b66-182a-430d-9e6c-cc86b319c59a
 
+   // HERE
   async function getResults(type) {
     setIsLoading(true);
 
@@ -26,7 +28,7 @@ export const ResultContextProvider = ({ children }) => {
 
     const options = {
       method: "POST",
-      url: "https://google-api-unlimited.p.rapidapi.com/search_image",
+      url: baseUrl + type,
       headers: {
         "x-rapidapi-key": "735f7b1270msh6c586cab168a204p194541jsn4a8b43cfab9c",
         "x-rapidapi-host": "google-api-unlimited.p.rapidapi.com",

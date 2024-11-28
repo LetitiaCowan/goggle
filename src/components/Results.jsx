@@ -8,13 +8,15 @@ const Results = () => {
   const { results, isLoading, getResults, searchTerm } = useResultContext();
   const location = useLocation(); //images, news, videos etc
 
-  // useEffect(() => {
-  //   if(location.pathname === "/search") {
-  //     getResults("g_search")
-  //   } if(location.pathname === "images") {
-  //     getResults("search_image")
-  //   }
-  // }, [searchTerm, location.pathname])
+  
+  // HERE
+  useEffect(() => {
+    if (location.pathname === "/search") {
+      getResults("g_search");
+    } else if (location.pathname === "/images") {
+      getResults("search_image")
+    }
+  }, [searchTerm, location.pathname]);
 
   if (isLoading) {
     return <Loading />;
